@@ -1,0 +1,42 @@
+title: Yuzhu's Blog
+tagline: "a record of ongoing thought — an evolving notebook of ideas"
+description: "Notes on computer science, mathematics, biology, and everything in between."
+author: Yuzhu
+email: yuzhut99@gmail.com
+url: "" # fill in with https://<username>.github.io once you know the repo name
+baseurl: "" # fill in with "/<repo-name>" if this is not a <username>.github.io repo
+
+markdown: kramdown
+permalink: /blog/:year/:month/:day/:title/
+
+# The github-pages gem defaults kramdown's input parser to GFM, whose table
+# detection misfires on any line containing multiple "|" characters — which
+# math notation uses constantly (conditional probability p(x|z), set-builder
+# notation, norms, etc). Pin the plain kramdown parser instead, which only
+# recognizes a table when it sees an actual header + "---|---" separator row.
+kramdown:
+  input: kramdown
+
+# This site uses fully custom layouts (no gem-based theme). The github-pages
+# gem defaults "theme" to jekyll-theme-primer unless overridden here, which
+# would otherwise pull in that theme's (unused) Sass assets.
+theme: null
+
+plugins:
+  - jekyll-feed
+
+collections:
+  gallery:
+    output: false
+
+defaults:
+  - scope:
+      path: "_posts"
+      type: posts
+    values:
+      layout: post
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
